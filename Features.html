@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Click Me</title>
+
+<link rel="stylesheet" type="text/css" href="myCss.css">
+
+<script type="text/javascript">
+function onloadFunction () {
+	alert('Welcome, Nice to meet you!');
+}
+function addParagraphText() {
+	document.getElementById("para").innerHTML="Added a new line of text!";
+}
+function displayInput() {
+	var testInput = document.getElementById("name").value;
+	if (testInput.length == 0) {
+		document.getElementById("para2").innerHTML = "You did not type anything";
+	} else {
+		document.getElementById("para2").innerHTML = testInput;
+	}
+}
+function myAlertMath() {
+	var userNumber = document.getElementById("mathInput").value;
+	alert("Your number X 5 is: " + userNumber * 5);
+}
+function myPrompt() {
+	var person = prompt("Please enter your name:", "Uğur");
+	if (person != "") {
+		document.getElementById("name2").innerHTML = "Hello " + person + "! How are you today?";
+	}
+}
+function checkField1() {
+	var field = document.getElementById("field1").value;
+	if (field.length < 5) {
+		document.getElementById("message1").innerHTML = "Too short!";
+	} else {
+		document.getElementById("message1").innerHTML = "That's long enough!";
+	}
+}
+function checkField2() {
+	var field = document.getElementById("field2").value;
+	if (field.length < 5) {
+		document.getElementById("message2").innerHTML = "Too short!";
+	} else {
+		document.getElementById("message2").innerHTML = "That's long enough!";
+	}
+}
+function checkField3() {
+	var field = document.getElementById("field3").value;
+	if (field.length < 5) {
+		document.getElementById("message3").innerHTML = "Too short!";
+	} else {
+		document.getElementById("message3").innerHTML = "That's long enough!";
+	}
+}
+function checkField4() {
+	var field = document.getElementById("field4").value;
+	var regex=/^[A-Za-z\s]{1,12}$/;
+	if(regex.test(field)) {
+		document.getElementById("message4").innerHTML="Input accepted";
+		document.getElementById("message4").style.color="green";
+	}
+	else {
+		document.getElementById("message4").innerHTML="Min:1, Max:12 characters";
+		document.getElementById("message4").style.color="red";
+	}
+}
+function checkField5() {
+	var field = document.getElementById("field5").value;
+	var regex=/^[A-Za-z\s]{1,12}$/;
+	if(regex.test(field))
+		document.getElementById("message5").innerHTML="Input accepted";
+	else
+		document.getElementById("message5").innerHTML="Min:1 Max:12 characters";
+}
+function checkField6() {
+	var field = document.getElementById("field6").value;
+	var regex=/^[A-Za-z]{3}$/;
+	if(regex.test(field))
+		document.getElementById("message6").innerHTML="Input accepted";
+	else
+		document.getElementById("message6").innerHTML="Please use a three letter code";
+}
+</script>
+</head>
+
+<body onload="onloadFunction();">
+<h1>Let's do some HTML and JavaScript</h1>
+<hr/>
+<p class="regular blue">Click the button to add some text.</p>
+<button onclick="addParagraphText();">Click Me</button>
+<p class="medium blue" id="para"></p>
+<hr/>
+<input id="name" type="text"/>
+<button onclick="displayInput();">Display Input</button>
+<br/>
+<p id="para2" class="orange"></p>
+<hr/>
+<button onclick="alert('Test alert');">Alert Test Button</button>
+<hr/>
+<input id="mathInput" type="number"/>
+<button onclick="myAlertMath()">Multiply X 5</button>
+<hr/>
+<button onclick="myPrompt();">Click for Prompt</button>
+<p id="name2" class="red"></p>
+<hr/>
+<div class="lgraybg">
+<p>JavaScript onblur events...</p>
+<input id="field1" type="text" onblur="checkField1();"/> <span id="message1"></span>
+<br/> <br/>
+<input id="field2" type="text" onblur="checkField2();"/> <span id="message2"></span>
+<br/> <br/>
+<input id="field3" type="text" onblur="checkField3();"/> <span id="message3"></span>
+</div>
+<hr/>
+<img alt="Google Image" src="https://bit.ly/3bvtIHF"/>
+<hr/>
+<table>
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Age</th>
+	</tr>
+	<tr>
+		<td>Mike</td>
+		<td>Green</td>
+		<td>20</td>
+	</tr>
+	<tr>
+		<td>Jill</td>
+		<td>Blue</td>
+		<td>25</td>
+	</tr>
+</table>
+<hr/>
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value="John" required><br>
+Last name:<br>
+<input type="text" name="lastname" value="Smith"><br>
+User password:<br>
+<input type="password" name="password"><br>
+
+<input type="radio" name="food" value="Pizza" checked>Pizza<br>
+<input type="radio" name="food" value="Tacos">Tacos<br>
+<input type="radio" name="food" value="Salad">Salad<br>
+
+<input type="checkbox" name="skills" value="HTML">I know HTML<br>
+<input type="checkbox" name="skills" value="JavaScript">I know JavaScript<br>
+
+Quantity (between 1 and 10):
+<input type="number" name="quantity" min="1" max="10"><br>
+
+Birthday:
+<input type="date" name="birthday"><br>
+
+Select your favorite color:
+<input type="color" name="favcolor"><br>
+
+<input type="submit" value="Submit">
+</form>
+<hr/>
+<p>Form validation with JavaScript and HTML</p>
+<form action="">
+Name:<input id="field4" type="text" onblur="checkField4();"><span id="message4"></span><br>
+Last Name:<input id="field5" type="text" onblur="checkField5();"><span id="message5"></span><br>
+Country code JS:<input id="field6" type="text" onblur="checkField6();"><span id="message6"></span><br>
+Country code HTML5:<input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required><br>
+<input type="checkbox" name="skills" value="HTML">I know HTML<br>
+<input type="checkbox" name="skills" value="JavaScript">I know JavaScript<br><input type="submit">
+</form>
+<hr/>
+<blockquote cite="sss">xxx</blockquote>
+<hr/>
+<details>
+  <summary>Epcot Center</summary>
+  <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+</details>
+<hr/>
+The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.
+<hr/>
+</body>
+</html>
